@@ -3,7 +3,7 @@
       id="bottom-navigation"
       class="block fixed inset-x-0 bottom-0 z-10 bg-white rounded-t-2xl border-t dark:bg-gray-800 dark:border-gray-700"
   >
-    <div id="tabs" class="flex justify-between mx-8 py-2 text-gray-400">
+    <div id="tabs" class="flex justify-between mx-8 py-2 pb-8 text-gray-400">
         <router-link
             class="
           w-full

@@ -59,7 +59,7 @@
                     type="button"
                     class="px-6 py-2 mx-4 text-md font-medium text-white bg-green-500 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                 >
-                  Start
+                  Finishing
                 </button>
                 <button v-else disabled type="button"
                         class="animate-pulse inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-green-500 focus:outline-none focus:shadow-outline-indigo transition ease-in-out duration-150 flex justify-between">
@@ -108,11 +108,10 @@ export default {
     },
     start() {
       this.loading = !this.loading
-      if (this.id === this.current_exam.id) {
-        setTimeout(() => {
-          this.loader = false; this.$router.push({ name: 'exams', params: { id: this.id } })
-        }, 3000);
-      }
+      setTimeout(() => {
+        this.loading = false;
+        this.$router.push({name: 'Home'})
+      }, 3000);
     },
   },
   computed: {

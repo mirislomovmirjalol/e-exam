@@ -25,20 +25,20 @@
 
 
           <button v-if="index+1 !== this.current_exam.tests.length" @click="next"
-                  class="py-2.5 mt-10 bg-purple-400 w-full text-white rounded-lg text-2xl font-extrabold shadow-md my-2 hover:shadow-xl">
+                  class="py-2.5 mt-10 bg-purple-400 w-full text-white rounded-lg text-2xl font-bold shadow-md my-2 hover:shadow-xl">
             Next
           </button>
           <button v-else @click="finish"
-                  class="py-2.5 mt-10 bg-green-500 w-full text-white rounded-lg text-2xl font-extrabold shadow-md my-2 hover:shadow-xl">
+                  class="py-2.5 mt-10 bg-green-500 w-full text-white rounded-lg text-2xl font-bold shadow-md my-2 hover:shadow-xl">
             Finish
           </button>
 
 
           <button @click="back"
-                  class="py-2.5 bg-gray-400 w-full text-white rounded-lg text-2xl font-extrabold shadow-md my-2 hover:shadow-xl dark:bg-gray-700 dark:text-white">
+                  class="py-2.5 bg-gray-400 w-full text-white rounded-lg text-2xl font-bold shadow-md my-2 hover:shadow-xl dark:bg-gray-700 dark:text-white">
             Back
           </button>
-          <Modal title="Finishing exam">
+          <Modal :open="this.isFinishModalOpen" title="Finishing exam" @close="closeFinishModal">
             Are you sure about that you complete all tests?
           </Modal>
         </div>
@@ -79,6 +79,10 @@ export default {
     },
     finish() {
       this.answer = ''
+      this.isFinishModalOpen = true
+    },
+    closeFinishModal() {
+      this.isFinishModalOpen = false
     },
     ...mapActions(['next_test']),
     ...mapActions(['back_test']),

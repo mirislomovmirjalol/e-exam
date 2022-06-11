@@ -110,7 +110,7 @@ export default {
       this.loading = !this.loading
       if (this.id === this.current_exam.id) {
         setTimeout(() => {
-          this.loader = false; this.$router.push({ name: 'exams', params: { id: this.id } })
+          this.loading = false; this.$router.push({ name: 'exams', params: { id: this.id } })
         }, 3000);
       }
     },
